@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def gradient_descent(x, y, m=0, b=0, lrn_rate=0.01, epoc=1000):
@@ -23,3 +24,11 @@ m,b = gradient_descent(x, y)
 
 print(f"Slope is {m}")
 print(f"Intercept is {b}")
+
+plt.scatter(x,y)
+plt.plot(x, m*x+b, color="red")
+plt.title("Gradient Discent")
+
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.show()
