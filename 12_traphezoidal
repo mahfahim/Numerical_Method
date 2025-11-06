@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Sample function to integrate
+def fun(x):
+    return 0.2 + 25 * x - 200 * x**2 + 675 * x**3 - 900 * x**4 + 400 * x**5
+
+# Trapezoidal rule implementation
+def trapezoidal_rule(fun, a, b):
+    return (b - a) * (fun(a) + fun(b)) / 2
+
+# Plotting the function
+array = np.arange(-0.01, 0.82, 0.01)
+plt.plot(array, fun(array), label='f(x)')
+
+# Calculate and print the result
+result = trapezoidal_rule(fun, 0, 0.8)
+print("Trapezoidal rule ->", result)
+
+# Plot the trapezoidal rule approximation
+plt.plot([0, 0.8], [fun(0), fun(0.8)], color='red', label='Trapezoidal rule')
+plt.fill_between([0, 0.8], [fun(0), fun(0.8)], color='red', alpha=0.3)
+plt.legend()
+plt.show()
